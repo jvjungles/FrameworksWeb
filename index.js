@@ -15,20 +15,18 @@ const rl = readline.createInterface({
 });
   
 function promptAsync(question) {
-return new Promise((resolve) => {
-    rl.question(question, (answer) => {
-    resolve(answer);
+    return new Promise((resolve) => {
+        rl.question(question, (answer) => {resolve(answer);});
     });
-});
 }
 
 while (postos.length < 3) {
     postos.push(
         new Posto(await promptAsync('\nDigite o posto: '), 
-                         new Combustivel(TIPO_COMBUSTIVEL.GASOLINA, 
-                                         await promptAsync('Digite valor da Gasolina: ')), 
-                         new Combustivel(TIPO_COMBUSTIVEL.ETANOL, 
-                                         await promptAsync('Digite valor da Etanol: '))));
+                  new Combustivel(TIPO_COMBUSTIVEL.GASOLINA, 
+                                  await promptAsync('Digite valor da Gasolina: ')), 
+                  new Combustivel(TIPO_COMBUSTIVEL.ETANOL, 
+                                  await promptAsync('Digite valor da Etanol: '))));
 }
 
 postos.forEach((posto) => {
