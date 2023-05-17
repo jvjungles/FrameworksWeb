@@ -12,7 +12,7 @@ export class Posto {
     if (proporcao < 0.7) {
       console.log(`\nNo posto ${this.nome}\né vantajoso abastecer com ETANOL\nproporcao (${(proporcao * 100).toFixed(2)}%)`);
     } else {
-      console.log(`\nNo posto ${this.nome},\né vantajoso abastecer com GASOLINA\nproporcao (${(proporcao * 100).toFixed(2)}%)`);
+      console.log(`\nNo posto ${this.nome}\né vantajoso abastecer com GASOLINA\nproporcao (${(proporcao * 100).toFixed(2)}%)`);
     }
   }  
 }
