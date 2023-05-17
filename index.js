@@ -2,6 +2,8 @@ import { Combustivel } from './combustivel.js';
 import { Posto } from './posto.js';
 import readline from 'readline';
 
+const postos = [];
+
 const TIPO_COMBUSTIVEL = {
     GASOLINA: 'GASOLINA',
     ETANOL: 'ETANOL'
@@ -20,12 +22,18 @@ return new Promise((resolve) => {
 });
 }
 
-// Posto
-let postoRet = new Posto(await promptAsync('Digite o posto: '), 
+while (postos.length < 3) {
+    postos.push(
+        new Posto(await promptAsync('\nDigite o posto: '), 
                          new Combustivel(TIPO_COMBUSTIVEL.GASOLINA, 
-                                        await promptAsync('Digite valor da Gasolina: ')), 
+                                         await promptAsync('Digite valor da Gasolina: ')), 
                          new Combustivel(TIPO_COMBUSTIVEL.ETANOL, 
-                                        await promptAsync('Digite valor da Etanol: ')));
-postoRet.sugereCombustivel();
+                                         await promptAsync('Digite valor da Etanol: '))));
+}
 
+postos.forEach((posto) => {
+    posto.sugereCombustivel();
+});
+
+console.log('');
 rl.close();

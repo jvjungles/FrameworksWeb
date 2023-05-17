@@ -9,10 +9,10 @@ export class Posto {
   sugereCombustivel() {
     const proporcao = this._etanol.preco / this._gasolina.preco;
 
-    if (proporcao > 0.7) {
-      console.log(`No posto ${this.nome}, é vantajoso abastecer com ETANOL - proporcao (${(proporcao * 100).toFixed(2)}%).`);
+    if (proporcao < 0.7) {
+      console.log(`\nNo posto ${this.nome}\né vantajoso abastecer com ETANOL\nproporcao (${(proporcao * 100).toFixed(2)}%)`);
     } else {
-      console.log(`No posto ${this.nome}, é vantajoso abastecer com GASOLINA - proporcao (${(proporcao * 100).toFixed(2)}%).`);
+      console.log(`\nNo posto ${this.nome},\né vantajoso abastecer com GASOLINA\nproporcao (${(proporcao * 100).toFixed(2)}%)`);
     }
   }  
 }
